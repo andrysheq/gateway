@@ -1,0 +1,15 @@
+services:
+  flat_gateway:
+    container_name: book_gateway
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 9970:9970
+    networks:
+      - book_service_network
+networks:
+  book_service_network:
+    driver: bridge
+    external: true
+    name: book_network
